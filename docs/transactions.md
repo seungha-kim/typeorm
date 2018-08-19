@@ -153,6 +153,9 @@ try {
     // since we have errors lets rollback changes we made
     await queryRunner.rollbackTransaction();
     
+} finally {
+    // you need to release manually created query runner:
+    await queryRunner.release();
 }
 ```
 
